@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="top">
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/button_new_hc_address"
+        android:text="New Apartment/Gated Community"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:theme="@style/AppTheme.MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/button_new_address"
+        android:text="New Independant House"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:theme="@style/AppTheme.MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_customer_addresses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+
+    </LinearLayout>
+</LinearLayout>

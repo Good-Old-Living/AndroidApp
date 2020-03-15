@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="top">
+
+    <Button
+        android:theme="@style/AppTheme.MaterialButton"
+        android:layout_gravity="center"
+        android:id="@+id/button_new_subscription"
+        android:text="New Subscription"
+        android:textAllCaps="false"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/text_no_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text=" --- No subscriptions yet --- "
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_subscription_addresses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+
+    </LinearLayout>
+</LinearLayout>

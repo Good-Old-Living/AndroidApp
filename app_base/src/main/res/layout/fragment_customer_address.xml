@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Details"
+            android:textSize="16sp"
+            android:textColor="#000ec9"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <!-- <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" 
+                android:layout_marginTop="4dp" android:background="@android:color/darker_gray" /> -->
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name*"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:id="@+id/text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mobile*"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:id="@+id/text_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alternate Phone"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:id="@+id/text_altphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_hc_address"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apartment / Gated Community"
+                android:textSize="16sp"
+                android:textColor="#000ec9"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apartment/Villa*" />
+                <Spinner
+                    android:id="@+id/spinner_housing_complex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Block*" />
+                <EditText
+                    android:id="@+id/text_hc_block"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Flat Number*" />
+                <EditText
+                    android:id="@+id/text_hc_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_ind_address"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="16sp"
+                android:textColor="#000ec9"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:id="@+id/text_address"
+                    android:inputType="text|textMultiLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Landmark"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:id="@+id/text_landmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Area*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Spinner
+                    android:id="@+id/spinner_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="City*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Spinner
+                    android:id="@+id/spinner_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="State*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Spinner
+                    android:id="@+id/spinner_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Country*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Spinner
+                    android:id="@+id/spinner_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pin*"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:id="@+id/text_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/button_save"
+            android:text="Save"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:textAllCaps="false"
+            android:theme="@style/AppTheme.MaterialButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

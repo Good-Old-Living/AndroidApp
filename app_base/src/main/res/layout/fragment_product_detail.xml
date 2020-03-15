@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/white">
+	<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingRight="15dp"
+		android:gravity="center">
+		<ImageView
+			android:id="@+id/product_image"
+			android:adjustViewBounds="true"
+			android:scaleType="centerCrop"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content" />
+	</RelativeLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_marginStart="@dimen/activity_horizontal_margin"
+		android:layout_marginEnd="@dimen/activity_horizontal_margin"
+		android:layout_marginTop="@dimen/activity_vertical_margin">
+
+		<TextView
+			android:id="@+id/product_type"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:value="Organic" />
+		<TextView
+			android:id="@+id/product_name"
+			android:layout_width="match_parent"
+			android:text="ProductName"
+			android:fontFamily="sans-serif-black"
+			android:textSize="20sp"
+			android:layout_height="wrap_content"
+			android:theme="@style/AppTheme.ProductNameText" />
+		<TextView
+			android:id="@+id/product_brand"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:value="Organic" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/product_price"
+				android:layout_marginRight="8dp"
+				android:theme="@style/AppTheme.ProductPriceText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/product_mrp"
+				android:layout_marginRight="8dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/product_discount"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+		</LinearLayout>
+		
+		<TextView
+			android:id="@+id/product_delivery_insts"
+			android:theme="@style/AppTheme.DeliveryInsts"
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:text=""
+			android:layout_height="wrap_content" />
+		
+		<include layout="@layout/view_product_quantity" />
+		<TextView
+			android:id="@+id/product_shortDescription"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+			android:layout_width="match_parent"
+			android:text=""
+			android:layout_height="wrap_content" />
+		<TextView
+			android:id="@+id/product_description"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+			android:layout_width="match_parent"
+			android:text=""
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:appcompat="http://schemas.android.com/tools">
+    <group>
+        <item
+            app:showAsAction="always|collapseActionView"
+            android:id="@+id/menu_item_address"
+            android:title="Delivery Address"
+            appcompat:showAsAction="always">
+
+        </item>
+    </group>
+    <item
+        app:showAsAction="always|collapseActionView"
+        android:id="@+id/menu_item_cancel"
+        android:title="Cancel"
+        appcompat:showAsAction="always">
+
+    </item>
+</menu>

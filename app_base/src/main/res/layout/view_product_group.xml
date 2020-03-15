@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginTop="10dp">
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Spinner
+            android:id="@+id/spinner_item_qty_list"
+            style="@style/spinner"/>
+
+
+        <LinearLayout
+            android:id="@+id/product_item_container"
+            android:orientation="horizontal"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

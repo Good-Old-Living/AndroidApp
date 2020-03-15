@@ -1,0 +1,109 @@
+<resources>
+
+	<!-- Base application theme. -->
+	<style
+		name="AppTheme"
+		parent="Theme.AppCompat.Light.DarkActionBar">
+		<!-- Customize your theme here. -->
+		<item name="background">@color/actionBarBackground</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="AppTheme.NoActionBar">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
+
+	<style
+		name="AppTheme.AppBarOverlay"
+		parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+	<style
+		name="AppTheme.ToolbarOverlay"
+		parent="ThemeOverlay.AppCompat.Light" />
+
+	<style name="spinner">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@drawable/gradient_spinner</item>
+		<item name="android:layout_margin">10dp</item>
+		<item name="android:paddingLeft">8dp</item>
+		<item name="android:paddingRight">20dp</item>
+		<item name="android:paddingTop">5dp</item>
+		<item name="android:paddingBottom">5dp</item>
+		<item name="android:popupBackground">#DFFFFFFF</item>
+	</style>
+
+	<style
+		name="AppTheme.DialogTitle"
+		parent="AppTheme">
+		<item name="android:maxLines">1</item>
+		<item name="android:scrollHorizontally">true</item>
+		<item name="android:textColor">@color/dialogTitle</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">22sp</item>
+	</style>
+	<style
+		name="AppTheme.DialogTheme"
+		parent="Theme.AppCompat.Light.Dialog.Alert">
+		<item name="android:windowTitleStyle">@style/AppTheme.DialogTitle</item>
+		<item name="colorAccent">@color/dialogButton</item>
+		<item name="android:windowBackground">@drawable/dialog_background</item>
+	</style>
+	<style
+		name="AppTheme.Link"
+		parent="AppTheme">
+		<item name="android:textColor">@color/linkTextColor</item>
+		<item name="colorAccent">@android:color/white</item>
+	</style>
+	<style
+		name="AppTheme.MaterialButton"
+		parent="AppTheme">
+		<item name="android:textColor">@color/buttonText</item>
+		<item name="colorAccent">@color/buttonText</item>
+		<item name="colorButtonNormal">@color/buttonBackground</item>
+		<item name="textAllCaps">false</item>
+	</style>
+
+	<style
+		name="AppTheme.ProductNameText"
+		parent="AppTheme">
+		<item name="android:textColor">@color/productName</item>
+		<!-- <item name="android:textStyle">bold</item> <item name="android:textSize">16sp</item> -->
+	</style>
+	<style
+		name="AppTheme.ProductPriceText"
+		parent="AppTheme">
+		<item name="android:textColor">@color/productPrice</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+	<style
+		name="AppTheme.GrandTotalText"
+		parent="AppTheme">
+		<item name="android:textColor">@color/red</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">22sp</item>
+	</style>
+
+	<style
+		name="AppTheme.QtyAddButton"
+		parent="AppTheme">
+		<item name="colorButtonNormal">@android:color/white</item>
+		<item name="android:textSize">25dp</item>
+		<!-- <item name="android:textStyle">bold</item> <item name="android:textColor">@color/green</item> -->
+	</style>
+	<style
+		name="AppTheme.QtyRemoveButton"
+		parent="AppTheme">
+		<item name="colorButtonNormal">@android:color/white</item>
+		<item name="android:textSize">25dp</item>
+		<!-- <item name="android:textStyle">bold</item> <item name="android:textColor">@color/red</item> -->
+	</style>
+	<style
+		name="AppTheme.DeliveryInsts"
+		parent="AppTheme">
+		<item name="android:textStyle">bold</item>
+	</style>
+</resources>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/text_order_no"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold" 
+                android:layout_gravity="left|center"
+                android:layout_weight="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vertical_ellipsis"
+                android:id="@+id/text_ellipsis"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginRight="22dp"
+                android:textSize="25sp"
+                android:textStyle="bold" 
+                android:textColor="@android:color/black"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="37dp">
+        <ListView
+            android:id="@+id/cart_item_view"
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/order_summary_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bottomBarBackground">
+
+            <TextView
+                android:id="@+id/text_item_count"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_weight="2"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:id="@+id/text_grand_total"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="25dp"
+                android:textColor="@color/red"
+                android:layout_weight="2"
+                android:layout_marginRight="10dp" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

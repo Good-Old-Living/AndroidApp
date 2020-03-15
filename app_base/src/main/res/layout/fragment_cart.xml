@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <View
+        android:id="@+id/focus_thief"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <TextView
+        android:id="@+id/cart_no_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Your shopping cart is empty"
+        android:textSize="@dimen/empty_list_font_size"
+        android:visibility="invisible" />
+    <LinearLayout
+        android:id="@+id/lo_cart_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/productNotes"
+                
+                android:text="We will attempt to provide good quality vegetables, fruits and greens, but the quality and the size may vary every time." />
+        <ListView
+            android:id="@+id/cart_item_view"
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="0dp"
+            android:layout_weight="0.9">
+
+        </ListView>
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:text="" />
+            
+        </LinearLayout> 
+       
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/cart_checkout_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bottomBarBackground">
+
+            <TextView
+                android:id="@+id/cart_grand_total"
+                android:theme="@style/AppTheme.GrandTotalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_weight="2"
+                android:layout_marginLeft="10dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Checkout"
+                android:layout_weight="1"
+                android:id="@+id/cart_checkout"
+                android:layout_gravity="right"
+                android:theme="@style/AppTheme.MaterialButton"/>
+                
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

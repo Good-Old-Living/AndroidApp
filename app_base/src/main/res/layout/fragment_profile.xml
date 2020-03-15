@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Name"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/text_name"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Email"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/text_email"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Mobile"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/text_mobile"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/button_save"
+        android:text="Save"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:textAllCaps="false"
+        android:theme="@style/AppTheme.MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+</LinearLayout>

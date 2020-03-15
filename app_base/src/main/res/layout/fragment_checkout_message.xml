@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+       <!--  <TextView
+            android:text="Order Confirmation"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray" /> -->
+
+        <TextView
+            android:id="@+id/text_checkout_message"
+            android:fontFamily="sans-serif-black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/button_cont_shopping"
+            android:text="Continue Shopping"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:theme="@style/AppTheme.MaterialButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginBottom="40dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/button_new_hc_address"
+                android:text="New Apartment/Gated Community"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:textAllCaps="false"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/button_new_address"
+                android:text="New Independant House"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:textAllCaps="false"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/address_no_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text=" --- No addresses --- "
+                android:visibility="invisible" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup_del_address"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/cart_checkout_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/button_address_continue"
+            android:text="Proceed"
+            android:theme="@style/AppTheme.MaterialButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

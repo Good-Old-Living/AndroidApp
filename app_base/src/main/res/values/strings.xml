@@ -1,0 +1,10 @@
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    
+    <string name="app_name">Good Old Living</string>
+    
+    <string name="qtyButtonSize">38dp</string>
+    
+    <string name="vertical_ellipsis">&#8942;</string>
+</resources>

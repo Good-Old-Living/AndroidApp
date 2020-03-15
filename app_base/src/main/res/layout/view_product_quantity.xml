@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#ffffff">
+
+	<LinearLayout
+		android:id="@+id/lo_quantity"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:id="@+id/button_quantity_minus"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:theme="@style/AppTheme.QtyRemoveButton"
+				android:text="-" />
+			<EditText
+				android:layout_marginLeft="@dimen/activity_horizontal_margin"
+				android:layout_marginRight="@dimen/activity_horizontal_margin"
+				android:id="@+id/product_quantity"
+				android:text=""
+				android:layout_gravity="center"
+				android:gravity="center"
+				android:layout_width="40dp"
+				android:layout_height="wrap_content" />
+			<Button
+				android:id="@+id/button_quantity_add"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:theme="@style/AppTheme.QtyAddButton"
+				android:paddingBottom="5dp"
+				android:text="+" />
+
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/product_delivery_insts_link"
+			android:visibility="gone"
+			android:layout_marginTop="8dp"
+			android:layout_width="match_parent"
+			android:text="Check delivery times"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/lo_out_of_stock"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ffffff"
+		android:visibility="gone">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Out Of Stock" />
+		<Button
+			android:id="@+id/button_notifyme"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Notify Me" />
+
+	</LinearLayout>
+</LinearLayout>

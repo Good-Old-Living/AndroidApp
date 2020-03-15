@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="red">#800000</color>
+	<color name="white">#FFFFFF</color>
+	<color name="lightGrey">#f3f3f3</color>
+
+	<color name="important">#ff4d94</color>
+
+    <color name="bottomBarBackground">#cddec6</color>
+   
+   <color name="borderLight">#f5f5f0</color>
+   
+	<color name="buttonBackground">#128EA8</color>
+	<color name="buttonText">@android:color/white</color>
+
+    <color name="productTitle">#003311</color>
+	<color name="productName">#2F4F4F</color>
+	<color name="productPrice">#b52715</color>
+	<color name="productNotes">#FF0000</color>
+	
+	<color name="inputLabel">#003311</color>
+	
+	<color name="linkTextColor">#4B0082</color>
+
+	<color name="dialogBackground">#ffffff</color>
+	<color name="dialogButton">#4B0082</color>
+	<color name="dialogTitle">#228B22</color>
+</resources>
