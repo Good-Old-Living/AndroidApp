@@ -24,6 +24,7 @@ import com.paaril.app.ui.fragment.ProfileFragment;
 import com.paaril.app.ui.fragment.SubscriptionDeviationFragment;
 import com.paaril.app.ui.fragment.SubscriptionFragment;
 import com.paaril.app.ui.fragment.SubscriptionsFragment;
+import com.paaril.app.ui.fragment.WalletFragment;
 
 public class UIFragmentTransaction {
 
@@ -103,6 +104,13 @@ public class UIFragmentTransaction {
     ProfileFragment profileFragment = new ProfileFragment();
     UIHelper.setFragment(activity,
                          profileFragment);
+
+  }
+  
+  public static void wallet(AppCompatActivity activity) {
+    WalletFragment walletFragment = new WalletFragment();
+    UIHelper.setFragment(activity,
+                         walletFragment);
 
   }
 

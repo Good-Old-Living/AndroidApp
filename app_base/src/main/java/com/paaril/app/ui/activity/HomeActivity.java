@@ -129,6 +129,11 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
       if (!AppHelper.loginIfRequired(this)) {
         UIFragmentTransaction.profile(this);
       }
+    } else if (id == R.id.nav_wallet) {
+
+      if (!AppHelper.loginIfRequired(this)) {
+        UIFragmentTransaction.wallet(this);
+      }  
     } else if (id == R.id.nav_addresses) {
       if (!AppHelper.loginIfRequired(this)) {
         UIFragmentTransaction.customerAddresses(this);

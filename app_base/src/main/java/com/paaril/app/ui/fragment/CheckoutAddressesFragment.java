@@ -7,6 +7,7 @@ import com.paaril.app.AppHelper;
 import com.paaril.app.AppServiceRepository;
 import com.paaril.app.DomainEntity;
 import com.paaril.app.base.R;
+import com.paaril.app.cart.ShoppingCart;
 import com.paaril.app.ui.UIFragmentTransaction;
 import com.paaril.app.ui.listener.AppOnClickListener;
 
@@ -110,8 +111,15 @@ public class CheckoutAddressesFragment extends AppFragment {
 
           DomainEntity selectedAddress = addresses.get(id - 1);
 
-          UIFragmentTransaction.checkoutPayment(parentActivity,
-                                                selectedAddress);
+          String paymentId = "1";
+
+          DomainEntity resultEntity = ShoppingCart.getShoppingCart().checkout(selectedAddress.getId(),
+                                                                              paymentId);
+          UIFragmentTransaction.checkoutMessage(parentActivity,
+                                                resultEntity);
+          
+//          UIFragmentTransaction.checkoutPayment(parentActivity,
+//                                                selectedAddress);
 
         }
 
