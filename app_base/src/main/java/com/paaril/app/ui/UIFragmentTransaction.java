@@ -17,6 +17,7 @@ import com.paaril.app.ui.fragment.ContactUsFragment;
 import com.paaril.app.ui.fragment.CustomerAddressFragment;
 import com.paaril.app.ui.fragment.CustomerAddressesFragment;
 import com.paaril.app.ui.fragment.OrderFragment;
+import com.paaril.app.ui.fragment.OrderPaymentFragment;
 import com.paaril.app.ui.fragment.OrdersFragment;
 import com.paaril.app.ui.fragment.ProductDetailFragment;
 import com.paaril.app.ui.fragment.ProductGroupListFragment;
@@ -94,6 +95,15 @@ public class UIFragmentTransaction {
   public static void order(AppCompatActivity activity,
                            DomainEntity salesOrder) {
     OrderFragment orderFragment = OrderFragment.newInstance(salesOrder);
+
+    UIHelper.setFragment(activity,
+                         orderFragment);
+
+  }
+  
+  public static void orderPayment(AppCompatActivity activity,
+                                  DomainEntity salesOrder) {
+    OrderPaymentFragment orderFragment = OrderPaymentFragment.newInstance(salesOrder);
 
     UIHelper.setFragment(activity,
                          orderFragment);

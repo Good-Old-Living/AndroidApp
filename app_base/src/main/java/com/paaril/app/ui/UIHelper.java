@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -24,9 +26,12 @@ import com.paaril.app.base.R;
 import com.paaril.app.cart.ShoppingCart;
 import com.paaril.app.ui.activity.HomeActivity;
 import com.paaril.app.ui.activity.LoginActivity;
+import com.paaril.app.ui.activity.RazorPayPaymentActivity;
 import com.paaril.app.ui.component.ProductQuanityComponent;
 import com.paaril.app.ui.listener.AppOnClickListener;
 import com.paaril.app.util.ObjectHelper;
+
+import java.util.List;
 
 public class UIHelper {
 
@@ -114,10 +119,12 @@ public class UIHelper {
     FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
     transaction.addToBackStack(fragment.getClass().getName());
     transaction.replace(resourceId,
-                        fragment).setCustomAnimations(R.anim.fade_in,
-                                                      R.anim.fade_out,
-                                                      R.anim.fade_in,
-                                                      R.anim.fade_out).commit();
+                        fragment)
+               .setCustomAnimations(R.anim.fade_in,
+                                    R.anim.fade_out,
+                                    R.anim.fade_in,
+                                    R.anim.fade_out)
+               .commit();
   }
 
   public static void setFragmentWithNoBackStack(AppCompatActivity activity,
@@ -126,10 +133,12 @@ public class UIHelper {
 
     FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
     transaction.replace(resourceId,
-                        fragment).setCustomAnimations(R.anim.fade_in,
-                                                      R.anim.fade_out,
-                                                      R.anim.fade_in,
-                                                      R.anim.fade_out).commit();
+                        fragment)
+               .setCustomAnimations(R.anim.fade_in,
+                                    R.anim.fade_out,
+                                    R.anim.fade_in,
+                                    R.anim.fade_out)
+               .commit();
   }
 
   public static void setFragmentWithNoBackStack(AppCompatActivity activity,
@@ -217,8 +226,9 @@ public class UIHelper {
                                               int quantity,
                                               DomainEntity userEntity) {
 
-            ShoppingCart.getShoppingCart().addProductLineItem(productLineItem,
-                                                              quantity);
+            ShoppingCart.getShoppingCart()
+                        .addProductLineItem(productLineItem,
+                                            quantity);
 
           }
         });
@@ -237,8 +247,10 @@ public class UIHelper {
               prdNotification.putValue("productLineItem.id",
                                        productLineItem.getId());
 
-              AppServiceRepository.getInstance().getWebServer().postEntity("ProductNotification",
-                                                                           prdNotification);
+              AppServiceRepository.getInstance()
+                                  .getWebServer()
+                                  .postEntity("ProductNotification",
+                                              prdNotification);
               UIHelper.toast(view.getContext(),
                              "We will notify you, when we have this product in stock");
             } else {
@@ -253,8 +265,7 @@ public class UIHelper {
         itemView.findViewById(R.id.button_notifyme).setOnClickListener(notifyListener);
 
       }
-    }
-    else {
+    } else {
       itemView.findViewById(R.id.lo_quantity).setVisibility(View.GONE);
     }
   }
@@ -271,7 +282,7 @@ public class UIHelper {
       }
 
     }
-    
+
     return null;
 
   }
@@ -280,7 +291,14 @@ public class UIHelper {
                                        String text) {
 
     textView.setText(getHtmlText(text));
-    
 
+  }
+
+  public static boolean isIntentAvailable(Context ctx,
+                                          Intent intent) {
+    final PackageManager mgr = ctx.getPackageManager();
+    List<ResolveInfo> list = mgr.queryIntentActivities(intent,
+                                                       PackageManager.MATCH_DEFAULT_ONLY);
+    return !list.isEmpty();
   }
 }

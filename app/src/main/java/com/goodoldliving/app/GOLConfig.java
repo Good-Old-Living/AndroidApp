@@ -4,8 +4,8 @@ import com.paaril.app.AppConfig;
 
 public class GOLConfig extends AppConfig {
 
-  //private static final String APP_SERVER_URL = "https://www.goodoldliving.com/";
-  private static final String APP_SERVER_URL = "http://192.168.1.8:8080/";
+  private static final String APP_SERVER_URL = "https://www.goodoldliving.com/";
+  //private static final String APP_SERVER_URL = "http://192.168.1.8:8080/";
   private static final String SECURITY_APP_NAME = "";
 
   @Override

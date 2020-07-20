@@ -101,7 +101,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
 
     };
     item.setOnMenuItemClickListener(mennuItemListener);
-    
+
     item = menu.findItem(R.id.action_checkout);
     item.setOnMenuItemClickListener(mennuItemListener);
 
@@ -133,7 +133,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
 
       if (!AppHelper.loginIfRequired(this)) {
         UIFragmentTransaction.wallet(this);
-      }  
+      }
     } else if (id == R.id.nav_addresses) {
       if (!AppHelper.loginIfRequired(this)) {
         UIFragmentTransaction.customerAddresses(this);
@@ -145,6 +145,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
       }
     } else if (id == R.id.nav_contactus) {
       UIFragmentTransaction.contactus(this);
+
     }
     return true;
   }

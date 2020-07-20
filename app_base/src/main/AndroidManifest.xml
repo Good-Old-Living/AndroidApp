@@ -40,6 +40,16 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name="com.paaril.app.ui.activity.RazorPayPaymentActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="com.paaril.app.ui.activity.RazorPayOrderPaymentActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
         <receiver
             android:name="com.paaril.app.sms.SMSListener"

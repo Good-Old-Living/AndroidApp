@@ -1,6 +1,7 @@
 package com.paaril.app.ui.component;
 
 import com.paaril.app.base.R;
+import com.paaril.app.ui.listener.AppOnDismissListener;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,8 +25,8 @@ public class DialogBuilder {
                                         DialogInterface.OnClickListener yesListener) {
 
     AlertDialog.Builder builder = buildDialog(context,
-                                                     "Confirm",
-                                                     message);
+                                              "Confirm",
+                                              message);
     builder.setPositiveButton("Yes",
                               yesListener);
 
@@ -57,6 +58,29 @@ public class DialogBuilder {
                                 }
                               });
 
+    builder.show();
+
+  }
+
+  public static void buildMessageDialog(Context context,
+                                        String title,
+                                        CharSequence message,
+                                        final DialogInterface.OnClickListener closeListener) {
+
+    AlertDialog.Builder builder = buildDialog(context,
+                                              title,
+                                              message);
+
+    builder.setNegativeButton("Close",
+                              closeListener);
+    builder.setOnDismissListener(new AppOnDismissListener(null) {
+      
+      @Override
+      public void onDismissImpl(DialogInterface dialog) {
+        closeListener.onClick(dialog, 1);
+        
+      }
+    });
     builder.show();
 
   }

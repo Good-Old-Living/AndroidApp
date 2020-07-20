@@ -12,11 +12,34 @@
         android:theme="@style/AppTheme.ProductPriceText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:text=""
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true" />
+    
+<!--     <LinearLayout
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <EditText
+                android:id="@+id/text_wallet_amount"
+                android:layout_marginRight="8dp"
+                android:theme="@style/AppTheme.ProductPriceText"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />    
+        <Button
+                android:id="@+id/button_add_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Add money to wallet" />   
+     </LinearLayout>  -->
+        
         
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view_wallet_trans"

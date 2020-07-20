@@ -4,10 +4,10 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.goodoldliving.app"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
-        versionCode 13
-        versionName "0.1.13"
+        versionCode 17
+        versionName "0.1.17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

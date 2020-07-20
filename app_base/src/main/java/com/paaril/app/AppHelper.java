@@ -27,11 +27,13 @@ import java.util.Date;
 public class AppHelper {
 
   public static final String NEW_LINE = System.getProperty("line.separator");
+  public static String FAILED_PAYMENT_MESSAGE = "Order has been created, but payment process is not complete. You can go to Menu-> Orders and pay against the order, which is in Pending Payment state.";
 
   private static final String DATE_FORMAT = "dd-MM-yyyy";
   private static final SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
   private static final String DEFAULT_PRODUCT_TN_IMAGE = "img/noimage.gif";
+  
 
   public static boolean loginIfRequired(AppCompatActivity activity) {
     if (!AppServiceRepository.getInstance().getAppSession().hasUserLoggedIn()) {
@@ -84,7 +86,14 @@ public class AppHelper {
       imageURL = defaultImageURL;
     }
 
-    Bitmap bitmap = AppServiceRepository.getInstance().getWebServer().getImage(imageURL);
+    Bitmap bitmap = null;
+    try {
+      bitmap = AppServiceRepository.getInstance().getWebServer().getImage(imageURL);
+
+
+    } catch (Exception e) {
+      bitmap = AppServiceRepository.getInstance().getWebServer().getImage("/img/noimage.gif");
+    }
 
     return bitmap;
 
@@ -272,6 +281,10 @@ public class AppHelper {
 
   public static boolean isSalesOrderCancelable(DomainEntity salesOrder) {
     return "1".equals(salesOrder.getValue("state.id"));
+  }
+
+  public static boolean isPendingPaymentState(DomainEntity salesOrder) {
+    return AppConstants.STATE_PENDING_PAYMENT_CODE.equals(salesOrder.getValue("state.code"));
   }
 
   public static void attachCancelSalesOrderAction(final View parentView,

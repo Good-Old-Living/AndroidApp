@@ -36,8 +36,10 @@ public class CartFragment extends AppFragment implements ProductQuanityComponent
 
     if (cartListAdapter.getCount() > 0) {
 
-      sessionShoppingCart = AppServiceRepository.getInstance().getWebServer().getDomainEntity("SessionShoppingCart",
-                                                                                              "-1");
+      sessionShoppingCart = AppServiceRepository.getInstance()
+                                                .getWebServer()
+                                                .getDomainEntity("SessionShoppingCart",
+                                                                 "-1");
 
       Button checkoutButton = contentView.findViewById(R.id.cart_checkout);
       checkoutButton.setOnClickListener(new AppOnClickListener() {
@@ -71,8 +73,9 @@ public class CartFragment extends AppFragment implements ProductQuanityComponent
                                       DomainEntity userEntity) {
 
     if (productLineItem != null) {
-      ShoppingCart.getShoppingCart().addProductLineItem(productLineItem,
-                                                        quantity);
+      ShoppingCart.getShoppingCart()
+                  .addProductLineItem(productLineItem,
+                                      quantity);
 
     }
 
@@ -80,8 +83,10 @@ public class CartFragment extends AppFragment implements ProductQuanityComponent
 
     if (cartListAdapter.getCount() > 0) {
 
-      sessionShoppingCart = AppServiceRepository.getInstance().getWebServer().getDomainEntity("SessionShoppingCart",
-                                                                                              "-1");
+      sessionShoppingCart = AppServiceRepository.getInstance()
+                                                .getWebServer()
+                                                .getDomainEntity("SessionShoppingCart",
+                                                                 "-1");
     }
 
     postExecuteTask();
@@ -102,7 +107,15 @@ public class CartFragment extends AppFragment implements ProductQuanityComponent
       TextView grandTotalText = contentView.findViewById(R.id.cart_grand_total);
 
       StringBuilder strBuilder = new StringBuilder();
-      strBuilder.append("Rs. ").append(sessionShoppingCart.getValue("grandTotal")).append(" (").append(sessionShoppingCart.getValue("itemCount")).append(")");
+
+      strBuilder.append("Rs. ").append(sessionShoppingCart.getValue("grandTotal"));
+      if (sessionShoppingCart.getValue("walletAmount") != null) {
+        int walletAmount = Integer.parseInt(sessionShoppingCart.getValue("walletAmount"));
+        if (walletAmount > 0) {
+          strBuilder.append("(-").append(walletAmount).append(")");
+        }
+      }
+      strBuilder.append(" - Items ").append(sessionShoppingCart.getValue("itemCount"));
 
       grandTotalText.setText(strBuilder.toString());
 

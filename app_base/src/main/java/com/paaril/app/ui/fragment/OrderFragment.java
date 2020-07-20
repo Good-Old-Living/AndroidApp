@@ -130,7 +130,16 @@ public class OrderFragment extends AppFragment implements ProductQuanityComponen
     itemCountText.setText("Items : " + salesOrderSummary.getValue("itemCount"));
 
     TextView grandTotalText = contentView.findViewById(R.id.text_grand_total);
-    grandTotalText.setText("Rs. " + salesOrderSummary.getValue("grandTotal"));
+    
+    StringBuilder strBuilder = new StringBuilder();
+
+    strBuilder.append("Rs. ")
+              .append(salesOrderSummary.getValue("grandTotal"))
+              .append(" (-")
+              .append(salesOrderSummary.getValue("walletAmount"))
+              .append(")");
+    
+    grandTotalText.setText(strBuilder.toString());
 
     final View ellipsisTextView = parentActivity.findViewById(R.id.text_ellipsis);
 

@@ -28,7 +28,8 @@ public class SMSListener extends BroadcastReceiver {
           SmsMessage sms = SmsMessage.createFromPdu((byte[]) pdu);
           String senderId = sms.getDisplayOriginatingAddress();
 
-          if (senderId.endsWith(AppConstants.SMS_SENDER_ID)) {
+          if (senderId.endsWith(AppConstants.SMS_SENDER_ID)
+              || senderId.endsWith(AppConstants.SMS_SENDER_ID_BY_PROVIDER)) {
 
             String message = sms.getDisplayMessageBody();
 
@@ -49,36 +50,36 @@ public class SMSListener extends BroadcastReceiver {
     }
   }
 
-//  //In activity
-//  
-//  
-//    private BroadcastReceiver receiver = new BroadcastReceiver() {
-//      @Override
-//      public void onReceive(Context context, Intent intent) {
-//          if (intent.getAction().equalsIgnoreCase("otp")) {
-//              final String message = intent.getStringExtra("message");
-//               your_edittext.setText(message);
-//              //Do whatever you want with the code here
-//          }
-//      }
-//  };
-//
-//  
-//  @Override
-//  public void onResume() {
-//      LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter("otp"));
-//      super.onResume();
-//  }
-//   
-//  @Override
-//  public void onPause() {
-//      super.onPause();
-//      LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
-//  }
+  //  //In activity
+  //  
+  //  
+  //    private BroadcastReceiver receiver = new BroadcastReceiver() {
+  //      @Override
+  //      public void onReceive(Context context, Intent intent) {
+  //          if (intent.getAction().equalsIgnoreCase("otp")) {
+  //              final String message = intent.getStringExtra("message");
+  //               your_edittext.setText(message);
+  //              //Do whatever you want with the code here
+  //          }
+  //      }
+  //  };
+  //
+  //  
+  //  @Override
+  //  public void onResume() {
+  //      LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter("otp"));
+  //      super.onResume();
+  //  }
+  //   
+  //  @Override
+  //  public void onPause() {
+  //      super.onPause();
+  //      LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+  //  }
 
-//  <EditText
-//  android:id="@+id/ed_otp"
-//  android:layout_width="match_parent"
-//  android:layout_height="wrap_content" />
+  //  <EditText
+  //  android:id="@+id/ed_otp"
+  //  android:layout_width="match_parent"
+  //  android:layout_height="wrap_content" />
 
 }

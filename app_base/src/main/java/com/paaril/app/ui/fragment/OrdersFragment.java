@@ -125,6 +125,20 @@ public class OrdersFragment extends AppFragment {
         cancelButton.setVisibility(View.GONE);
       }
 
+      View payButton = itemView.findViewById(R.id.button_pay);
+
+      if (AppHelper.isPendingPaymentState(salesOrder)) {
+
+        payButton.setOnClickListener(new AppOnClickListener() {
+          @Override
+          public void onClickImpl(View view) {
+            UIFragmentTransaction.orderPayment(parentActivity, salesOrder);
+          }
+        });
+
+      } else {
+        payButton.setVisibility(View.GONE);
+      }
     }
 
   }

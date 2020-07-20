@@ -220,7 +220,7 @@ public class WebServer {
 
     url = appBaseURL + url;
 
-    System.out.println("@@@@@ Request URL " + url);
+    //System.out.println("@@@@@ Request URL " + url);
 
     HttpURLConnection httpConnection = getConnection(url,
                                                      method,
@@ -256,7 +256,7 @@ public class WebServer {
         sb.append(line).append('\n');
       }
 
-      System.out.println(">>>>> RECEIVED FROM WEBSERVER " + sb);
+      //System.out.println(">>>>> RECEIVED FROM WEBSERVER " + sb);
 
       return sb.toString();
 

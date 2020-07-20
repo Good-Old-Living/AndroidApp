@@ -31,6 +31,13 @@
             android:id="@+id/text_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+            
+        <Button
+                android:id="@+id/button_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Pay" />     
     </LinearLayout>
     <TextView
         android:layout_gravity="left"

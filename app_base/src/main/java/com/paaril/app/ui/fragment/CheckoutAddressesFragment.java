@@ -111,15 +111,8 @@ public class CheckoutAddressesFragment extends AppFragment {
 
           DomainEntity selectedAddress = addresses.get(id - 1);
 
-          String paymentId = "1";
-
-          DomainEntity resultEntity = ShoppingCart.getShoppingCart().checkout(selectedAddress.getId(),
-                                                                              paymentId);
-          UIFragmentTransaction.checkoutMessage(parentActivity,
-                                                resultEntity);
-          
-//          UIFragmentTransaction.checkoutPayment(parentActivity,
-//                                                selectedAddress);
+           UIFragmentTransaction.checkoutPayment(parentActivity,
+                                                selectedAddress);
 
         }
 

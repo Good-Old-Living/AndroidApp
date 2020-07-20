@@ -72,19 +72,13 @@ public class ShoppingCart {
     productQtyMap.clear();
   }
 
-  public DomainEntity checkout(String customerAddresId,
-                               String paymentId) {
+  public DomainEntity checkout(DomainEntity salesOrder) {
 
-    DomainEntity salesOrder = new DomainEntity();
     String customerId = AppServiceRepository.getInstance()
                                             .getAppSession()
                                             .getLoggedInCustomerId();
     salesOrder.putValue("customerId",
                         customerId);
-    salesOrder.putValue("deliveryAddress.id",
-                        customerAddresId);
-    salesOrder.putValue("paymentMethod.id",
-                        paymentId);
 
     DomainEntity resultEntity = AppServiceRepository.getInstance()
                                                     .getWebServer()
