@@ -64,8 +64,8 @@ public class OrderFragment extends AppFragment implements ProductQuanityComponen
     salesOrder = AppServiceRepository.getInstance().getWebServer().getDomainEntity("SalesOrder",
                                                                                    orderId);
     this.orderNumber = salesOrder.getValue("orderId");
-    String stateId = salesOrder.getValue("state.id");
-    enableQuantityChanges = "1".equals(stateId);
+    //String stateId = salesOrder.getValue("state.id");
+    enableQuantityChanges = false;//"1".equals(stateId);
 
     productLineItemListAdapter = new ProductLineItemAdapter(parentActivity, R.layout.view_cart_item,
         "SalesOrderLineItem", "salesOrderId=" + orderId);

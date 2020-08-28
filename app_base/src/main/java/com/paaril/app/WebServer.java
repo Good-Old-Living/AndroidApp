@@ -285,7 +285,7 @@ public class WebServer {
                                         "application/json");
       httpConnection.setRequestProperty("Cookie",
                                         appSession.getHttpCookieValue());
-      httpConnection.setConnectTimeout(10000);
+      httpConnection.setConnectTimeout(20000);
 
       if (dataWriter != null) {
 

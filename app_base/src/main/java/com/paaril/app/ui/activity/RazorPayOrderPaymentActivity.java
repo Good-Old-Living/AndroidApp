@@ -66,7 +66,7 @@ public class RazorPayOrderPaymentActivity extends RazorPayPaymentActivity implem
     } catch (Exception e) {
       e.printStackTrace();
       AppExceptionHandler.handle(this,
-                                 "Payment Successful111, but there is an issue in updating the order",
+                                 "Payment Successful, but there is an issue in updating the order",
                                  e);
       return;
     }

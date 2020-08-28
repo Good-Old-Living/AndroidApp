@@ -88,9 +88,10 @@ public class AppSession {
 
     if (userId != null) {
 
-      List<DomainEntity> customers = AppServiceRepository.getInstance().getWebServer().getDomainEntities("Customer",
-                                                                                                         "userId="
-                                                                                                             + userId);
+      List<DomainEntity> customers = AppServiceRepository.getInstance()
+                                                         .getWebServer()
+                                                         .getDomainEntities("Customer",
+                                                                            "userId=" + userId);
 
       if (!customers.isEmpty()) {
         customerId = customers.get(0).getId();
@@ -128,5 +129,22 @@ public class AppSession {
   public void clear() {
     sharedPrefsEditor.clear();
     sharedPrefsEditor.commit();
+  }
+
+  public DomainEntity getLogMessage(String type,
+                                    String message) {
+
+    DomainEntity logEntity = new DomainEntity();
+    logEntity.putValue("sessionId",
+                       getSessionId());
+    logEntity.putValue("customerId",
+                       getLoggedInCustomerId());
+    logEntity.putValue("type",
+                       type);
+    logEntity.putValue("message",
+                       "android:"+message);
+    
+
+    return logEntity;
   }
 }

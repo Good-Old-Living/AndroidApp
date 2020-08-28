@@ -132,7 +132,7 @@ public class AppFragment extends Fragment implements Runnable, AppAsyncTaskListe
     return recyclerView;
   }
 
-  private static class AppAsyncTask extends AsyncTask<Object, String, String> {
+  public static class AppAsyncTask extends AsyncTask<Object, String, String> {
 
     private AppAsyncTaskListener taskListener;
 

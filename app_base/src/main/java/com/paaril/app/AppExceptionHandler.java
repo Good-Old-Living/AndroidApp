@@ -9,6 +9,8 @@ import com.paaril.app.util.ObjectHelper;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Looper;
+
 import androidx.appcompat.app.AlertDialog;
 
 public class AppExceptionHandler {
@@ -36,6 +38,8 @@ public class AppExceptionHandler {
                             final Throwable exception) {
 
     //Thread.dumpStack();
+
+
     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
     if (ObjectHelper.isNullorEmpty(message)) {

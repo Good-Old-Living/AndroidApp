@@ -9,6 +9,8 @@ import com.paaril.app.AppHelper;
 import com.paaril.app.AppServiceRepository;
 import com.paaril.app.DomainEntity;
 import com.paaril.app.base.R;
+import com.paaril.app.cart.ShoppingCart;
+import com.paaril.app.logging.AppLogger;
 import com.paaril.app.ui.UIHelper;
 import com.paaril.app.ui.component.DialogBuilder;
 import com.paaril.app.ui.listener.AppDialogOnClickListener;
@@ -21,6 +23,7 @@ import org.json.JSONObject;
 public class RazorPayPaymentActivity extends AppActivity implements PaymentResultListener {
 
   protected DomainEntity salesOrder;
+  private DomainEntity pgTransaction;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class RazorPayPaymentActivity extends AppActivity implements PaymentResul
 
     Checkout.preload(getApplicationContext());
     salesOrder = (DomainEntity) getIntent().getSerializableExtra("salesOrder");
+    pgTransaction = (DomainEntity) getIntent().getSerializableExtra("pgTransaction");
     checkPaymentMode();
     startPayment();
   }
@@ -49,15 +53,15 @@ public class RazorPayPaymentActivity extends AppActivity implements PaymentResul
       options.put("name",
                   "Good Old Living");
       options.put("description",
-                  salesOrder.getValue("transactionId"));
+                  pgTransaction.getValue("transactionId"));
       options.put("image",
                   "https://goodoldliving.com/st/img/logo.png");
       options.put("currency",
                   "INR");
       options.put("amount",
-                  salesOrder.getValue("amount"));
+                  pgTransaction.getValue("amount"));
       options.put("order_id",
-                  salesOrder.getValue("paymentOrderId"));
+                  pgTransaction.getValue("paymentOrderId"));
 
       JSONObject preFill = new JSONObject();
       if (!ObjectHelper.isNullorEmpty(customer.getValue("email"))) {
@@ -75,46 +79,64 @@ public class RazorPayPaymentActivity extends AppActivity implements PaymentResul
 
     } catch (Exception e) {
       AppExceptionHandler.handle(activity,
-                                 "Unable to launch RazorPat application",
+                                 "Unable to launch RazorPay application",
                                  e);
     }
   }
 
   protected void checkPaymentMode() {
-    
+
   }
-  
+
   @Override
   public void onPaymentSuccess(String razorpayPaymentId) {
 
-    DomainEntity soPayment = new DomainEntity();
-    soPayment.putValue("paymentId",
-                       razorpayPaymentId);
-    soPayment.putValue("customerId",
-                       salesOrder.getValue("customerId"));
-    soPayment.putValue("paymentOrderId",
-                       salesOrder.getValue("paymentOrderId"));
-
+    
+    AppLogger.getLogger().logMessage("info", "RazorPaymentActivity.OnPaymentSucess - "+razorpayPaymentId);
+    
     try {
-      AppServiceRepository.getInstance()
-                          .getWebServer()
-                          .postEntity("SalesOrderPayment",
-                                      soPayment);
+      salesOrder.putValue("transactionId",
+                          pgTransaction.getValue("transactionId"));
+      salesOrder.putValue("paymentId",
+                          pgTransaction.getValue("paymentId"));
+      salesOrder.putValue("paymentOrderId",
+                          pgTransaction.getValue("paymentOrderId"));
+      salesOrder = ShoppingCart.getShoppingCart().checkout(salesOrder);
+
+      //    DomainEntity soPayment = new DomainEntity();
+      //    soPayment.putValue("paymentId",
+      //                       razorpayPaymentId);
+      //    soPayment.putValue("customerId",
+      //                       salesOrder.getValue("customerId"));
+      //    soPayment.putValue("paymentOrderId",
+      //                       salesOrder.getValue("paymentOrderId"));
+      //
+      //    try {
+      //      AppServiceRepository.getInstance()
+      //                          .getWebServer()
+      //                          .postEntity("SalesOrderPayment",
+      //                                      soPayment);
+      //    } catch (Exception e) {
+      //
+      //      AppExceptionHandler.handle(this,
+      //                                 "Payment Successful, but there is an issue in updating the order",
+      //                                 e);
+      //      return;
+      //    }
+      //
+
+      showSuccessMessage();
     } catch (Exception e) {
-
       AppExceptionHandler.handle(this,
-                                 "Payment Successful, but there is an issue in updating the order",
+                                 "We received the payment, but unable to complete your order. Please submit your order with Cash On Delivery option.",
                                  e);
-      return;
     }
-
-
-    showSuccessMessage();
   }
-  
+
   protected void showSuccessMessage() {
     String message = "Your order " + salesOrder.getValue(("orderId")) + " has been successfully created";
-    showMessage("Success", message);
+    showMessage("Success",
+                message);
   }
 
   /**
@@ -126,23 +148,24 @@ public class RazorPayPaymentActivity extends AppActivity implements PaymentResul
   public void onPaymentError(int code,
                              String response) {
 
-    showMessage("Failed", AppHelper.FAILED_PAYMENT_MESSAGE);
+    AppExceptionHandler.handle(this,
+                               "Payment process did not complete");
+    this.finish();
 
   }
 
-  private void showMessage(String title, String message) {
+  private void showMessage(String title,
+                           String message) {
     final AppActivity activity = this;
     DialogBuilder.buildMessageDialog(this,
-            title,
-            message,
-            new AppDialogOnClickListener(findViewById(R.id.layout_payment_message)) {
-              public void onClickImpl(DialogInterface dialog,
-                                      int which) {
-                dialog.dismiss();
-                UIHelper.startNextActivity(activity,
-                        HomeActivity.class.getName(),
-                        true);
-              }
-            });
+                                     title,
+                                     message,
+                                     new AppDialogOnClickListener(findViewById(R.id.layout_payment_message)) {
+                                       public void onClickImpl(DialogInterface dialog,
+                                                               int which) {
+                                         dialog.dismiss();
+                                         UIHelper.startHomeActivity(activity);
+                                       }
+                                     });
   }
 }

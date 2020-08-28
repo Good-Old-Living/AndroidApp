@@ -1,5 +1,20 @@
 package com.paaril.app.ui.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
 import com.paaril.app.AppExceptionHandler;
 import com.paaril.app.AppHelper;
@@ -11,23 +26,6 @@ import com.paaril.app.ui.UIHelper;
 import com.paaril.app.ui.fragment.ProfileFragment;
 import com.paaril.app.ui.listener.AppOnClickListener;
 import com.paaril.app.ui.listener.AppOnMenuItemClickListener;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 public class HomeActivity extends AppActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -163,16 +161,6 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
       headerLayout = navigationView.inflateHeaderView(R.layout.nav_header_main);
     }
 
-    welcomeText = headerLayout.findViewById(R.id.text_nav_cust_name);
-
-    final DomainEntity customer = ProfileFragment.getCustomer();
-    if (customer == null || customer.getValue("name") == null) {
-      welcomeText.setText("");
-    } else {
-
-      welcomeText.setText("Welcome, " + customer.getValue("name"));
-    }
-
     final Button loginButton = headerLayout.findViewById(R.id.button_nav_login);
     final Button logoutButton = headerLayout.findViewById(R.id.button_nav_logout);
 
@@ -214,6 +202,18 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
       logoutButton.setVisibility(View.GONE);
 
     }
+    
+    welcomeText = headerLayout.findViewById(R.id.text_nav_cust_name);
+
+    final DomainEntity customer = ProfileFragment.getCustomer();
+    if (customer == null || customer.getValue("name") == null) {
+      welcomeText.setText("");
+    } else {
+
+      welcomeText.setText("Welcome, " + customer.getValue("name"));
+    }
+    
+    
 
   }
 

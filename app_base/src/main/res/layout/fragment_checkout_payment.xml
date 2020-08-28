@@ -14,8 +14,6 @@
         android:fillViewport="true"
         android:background="@android:color/white">
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,53 +24,83 @@
 
             <TextView
                 android:id="@+id/payment_message"
-                android:text="You can pay using one of the following methods."
+                android:text="You can pay using one of the following methods and submit the order."
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <RadioGroup
-                android:id="@+id/radiogroup_payment_option"
+            <Button
+                android:id="@+id/button_wallet"
+                android:text="Pay from Wallet"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_cod"
+                android:text="Cash On Delivery"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/button_gpay"
+                android:text="GPay"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/button_online"
+                android:text="Credit Card/Debit Cart/Net Banking"
+                android:theme="@style/AppTheme.MaterialButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:id="@+id/layout_gpay_offline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp">
 
-                <RadioButton
-                    android:id="@+id/radio_cod"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cash on Delivery"
-                    android:layout_marginTop="10dp" />
-                <RadioButton
-                    android:id="@+id/radio_gpay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GPay"
-                    android:layout_marginTop="10dp" />
-                
-                <!-- <RadioButton android:id="@+id/radio_online_transfer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Online Bank Transfer" android:layout_marginTop="10dp" 
-                    /> <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32dp" android:layout_marginTop="10dp"> <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"> 
-                    <TextView android:text="Name" android:textStyle="bold" android:layout_width="70dp" android:layout_height="wrap_content" android:layout_marginLeft="10dp" /> <TextView android:text="Kiruthiga A" android:textStyle="bold" 
-                    android:layout_width="wrap_content" android:layout_height="wrap_content" /> </TableRow> <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"> <TextView android:text="Bank" android:textStyle="bold" 
-                    android:layout_width="70dp" android:layout_height="wrap_content" android:layout_marginLeft="10dp" /> <TextView android:text="HDFC Bank" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" 
-                    /> </TableRow> <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"> <TextView android:text="Branch" android:textStyle="bold" android:layout_width="70dp" android:layout_height="wrap_content" 
-                    android:layout_marginLeft="10dp" /> <TextView android:text="Arekere" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" /> </TableRow> <TableRow android:layout_width="fill_parent" 
-                    android:layout_height="fill_parent"> <TextView android:text="A/C No." android:textStyle="bold" android:layout_width="70dp" android:layout_height="wrap_content" android:layout_marginLeft="10dp" /> <TextView 
-                    android:text="50100212893831" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" /> </TableRow> <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"> 
-                    <TextView android:text="IFSC Code" android:textStyle="bold" android:layout_width="70dp" android:layout_height="wrap_content" android:layout_marginLeft="10dp" /> <TextView android:text="HDFC0004053" android:textStyle="bold" 
-                    android:layout_width="wrap_content" android:layout_height="wrap_content" /> </TableRow> <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"> <TextView android:text="A/C Type" 
-                    android:textStyle="bold" android:layout_width="70dp" android:layout_height="wrap_content" android:layout_marginLeft="10dp" /> <TextView android:text="Savings" android:textStyle="bold" android:layout_width="wrap_content" 
-                    android:layout_height="wrap_content" /> </TableRow> </TableLayout> -->
-                <RadioButton
-                    android:id="@+id/radio_online"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Credit Card/Debit Cart/Net Banking"
-                    android:layout_marginTop="10dp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@android:color/darker_gray" />
 
-                
-            </RadioGroup>
+
+                <TextView
+                    android:id="@+id/payment_message"
+                    android:text="You can also pay the order amount to 9880960654 (Kiruthiga) by GPay offline or using another phone and specify the last 4 digit of GPay transaction id below."
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/payment_gpay_trans_id"
+                    android:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/button_gpay_offline_submit"
+                    android:text="Place Order"
+                    android:theme="@style/AppTheme.MaterialButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+            <!-- <RadioGroup android:id="@+id/radiogroup_payment_option" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"> <RadioButton android:id="@+id/radio_cod" 
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cash on Delivery" android:layout_marginTop="10dp" /> <RadioButton android:id="@+id/radio_gpay" android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" android:text="GPay" android:layout_marginTop="10dp" /> <RadioButton android:id="@+id/radio_online" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                android:text="Credit Card/Debit Cart/Net Banking" android:layout_marginTop="10dp" /> </RadioGroup> -->
 
             <!-- <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"> <TextView android:text="Delivery 
                 Instructions. if any" android:layout_marginTop="5dp" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" /> <TextView android:id="@+id/text_del_insts" 
@@ -82,17 +110,6 @@
 
 
     </ScrollView>
-    <RelativeLayout
-        android:id="@+id/cart_checkout_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="bottom">
-
-        <Button
-            android:id="@+id/button_place_order"
-            android:text="Place Order"
-            android:theme="@style/AppTheme.MaterialButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+    <!-- <RelativeLayout android:id="@+id/cart_checkout_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:gravity="bottom"> <Button android:id="@+id/button_place_order" 
+        android:text="Place Order" android:theme="@style/AppTheme.MaterialButton" android:layout_width="fill_parent" android:layout_height="wrap_content" /> </RelativeLayout> -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
