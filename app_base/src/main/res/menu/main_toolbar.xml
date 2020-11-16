@@ -3,21 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:appcompat="http://schemas.android.com/tools">
-    <!-- <item android:id="@+id/action_settings" android:orderInCategory="100" android:title="@string/action_settings" 
-        app:showAsAction="never" /> <item android:id="@+id/action_search" app:actionViewClass="android.support.v7.widget.SearchView" 
-        app:showAsAction="always|collapseActionView" android:icon="@drawable/magnify" android:title="Search" 
-        /> -->
+
+    <item
+        android:id="@+id/action_search"
+        app:showAsAction="always|collapseActionView"
+        android:icon="@drawable/search"
+        android:title="Search Products" 
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
     <item
         app:showAsAction="always|collapseActionView"
         android:id="@+id/action_cart"
         android:title="Shopping Cart"
         appcompat:showAsAction="always"
         android:icon="@drawable/cart">
-     </item>
-     <item
+    </item>
+   <!--  <item
         app:showAsAction="always|collapseActionView"
         android:id="@+id/action_checkout"
         android:title="Check Out"
         appcompat:showAsAction="always">
-     </item>
+    </item> -->
 </menu>

@@ -51,6 +51,7 @@ public class ProductGroupListAdapter extends RecyclerView.Adapter<ProductGroupVi
 
     List<DomainEntity> productList = AppServiceRepository.getInstance().getWebServer().getDomainEntities("ProductLineItem",
                                                                                                          filter);
+    
     productIdList = new ArrayList<>();
     productItemGroupMap = new LinkedHashMap<>();
     Map<String, Bitmap> bitmapMap = new HashMap<>();
@@ -81,6 +82,10 @@ public class ProductGroupListAdapter extends RecyclerView.Adapter<ProductGroupVi
       itemGroupList.add(productLineItem);
     }
 
+  }
+  
+  public boolean isEmpty() {
+    return productIdList.isEmpty();
   }
 
   public static ProductGroupListAdapter newInstance(Context context,

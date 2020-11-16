@@ -80,7 +80,7 @@ public class CheckoutPaymentFragment extends AppFragment {
     final Button walletButton = contentView.findViewById(R.id.button_wallet);
     final Button codButton = contentView.findViewById(R.id.button_cod);
     final Button gpayButton = contentView.findViewById(R.id.button_gpay);
-    final Button onlineButton = contentView.findViewById(R.id.button_online);
+//    final Button onlineButton = contentView.findViewById(R.id.button_online);
 
     final View gpayOfflineLayout = contentView.findViewById(R.id.layout_gpay_offline);
 
@@ -92,7 +92,7 @@ public class CheckoutPaymentFragment extends AppFragment {
       walletButton.setVisibility(View.VISIBLE);
       codButton.setVisibility(View.GONE);
       gpayButton.setVisibility(View.GONE);
-      onlineButton.setVisibility(View.GONE);
+   //   onlineButton.setVisibility(View.GONE);
       gpayOfflineLayout.setVisibility(View.GONE);
 
       walletButton.setOnClickListener(new AppOnClickListener() {
@@ -112,7 +112,7 @@ public class CheckoutPaymentFragment extends AppFragment {
       walletButton.setVisibility(View.GONE);
       codButton.setVisibility(View.VISIBLE);
       gpayButton.setVisibility(View.VISIBLE);
-      onlineButton.setVisibility(View.VISIBLE);
+//      onlineButton.setVisibility(View.VISIBLE);
       gpayOfflineLayout.setVisibility(View.VISIBLE);
 
       codButton.setOnClickListener(new AppOnClickListener() {
@@ -151,7 +151,7 @@ public class CheckoutPaymentFragment extends AppFragment {
 
           if (ObjectHelper.isNullorEmpty(gpayTransId)) {
             AppExceptionHandler.handle(parentActivity,
-                                       "Please provide the last 4 digits of GPay Transaction Id");
+                                       "Please provide the last 4 digits of UPI Transaction Id");
             return;
           }
 
@@ -163,7 +163,7 @@ public class CheckoutPaymentFragment extends AppFragment {
         }
       });
 
-      onlineButton.setOnClickListener(new AppOnClickListener() {
+ /*     onlineButton.setOnClickListener(new AppOnClickListener() {
         @Override
         public void onClickImpl(View view) {
 
@@ -201,7 +201,7 @@ public class CheckoutPaymentFragment extends AppFragment {
           startRazorPayActivity(salesOrder,
                                 pgTransaction);
         }
-      });
+      }); */
     }
 
   }

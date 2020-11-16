@@ -49,13 +49,13 @@
                 android:theme="@style/AppTheme.MaterialButton"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
-            <Button
+<!--             <Button
                 android:id="@+id/button_online"
                 android:text="Credit Card/Debit Cart/Net Banking"
                 android:theme="@style/AppTheme.MaterialButton"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
-
+ -->
 
             <LinearLayout
                 android:id="@+id/layout_gpay_offline"
@@ -74,7 +74,7 @@
 
                 <TextView
                     android:id="@+id/payment_message"
-                    android:text="You can also pay the order amount to 9880960654 (Kiruthiga) by GPay offline or using another phone and specify the last 4 digit of GPay transaction id below."
+                    android:text="You can also pay the order amount to 9880960654 (Kiruthiga) by UPI Apps (GPay/PhonePe/PayTM) offline or using another phone that has UPI app installed and specify the last 4 digit of UPI transaction id below."
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-black"
                     android:layout_width="match_parent"

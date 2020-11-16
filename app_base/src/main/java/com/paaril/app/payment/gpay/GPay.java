@@ -10,10 +10,10 @@ public class GPay {
 
     android.net.Uri uri = new android.net.Uri.Builder().scheme("upi")
                                                        .authority("pay")
-//                                                       .appendQueryParameter("pa",
-//                                                                             "kirusiva28-1@okhdfcbank")
                                                        .appendQueryParameter("pa",
-                                                                             "9880960654@hdfcbank")
+                                                                             "gpay-11176293207@okbizaxis")
+                                                      // .appendQueryParameter("pa",
+                                                      //                       "9880960654@hdfcbank")
                                                        .appendQueryParameter("pn",
                                                                              "Good Old Living")
                                                        .appendQueryParameter("mc",

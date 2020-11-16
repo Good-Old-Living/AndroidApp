@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
@@ -26,6 +28,7 @@ import com.paaril.app.ui.UIHelper;
 import com.paaril.app.ui.fragment.ProfileFragment;
 import com.paaril.app.ui.listener.AppOnClickListener;
 import com.paaril.app.ui.listener.AppOnMenuItemClickListener;
+import com.paaril.app.util.ObjectHelper;
 
 public class HomeActivity extends AppActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -80,13 +83,40 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
     getMenuInflater().inflate(R.menu.main_toolbar,
                               menu);
 
-    /*
-     * MenuItem searchViewItem = menu.findItem(R.id.action_search); Drawable
-     * searchIcon = searchViewItem.getIcon(); // change 0 with 1,2 ...
-     * searchIcon.mutate();
-     * searchIcon.setColorFilter(getResources().getColor(R.color.icons),
-     * PorterDuff.Mode.SRC_IN);
-     */
+    final MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      
+      @Override
+      public boolean onQueryTextSubmit(String query) {
+   
+        
+        if (ObjectHelper.isNullorEmpty(query) || query.length() < 3) {
+          AppExceptionHandler.handle(HomeActivity.this, "Search query must contain atleast 3 characters");
+          return false;
+        }
+        
+        searchView.clearFocus();
+        searchView.setQuery("", false);
+        searchView.setIconified(true);
+        searchItem.collapseActionView();
+        try {
+
+          UIFragmentTransaction.productSearch(HomeActivity.this,
+                                              query);
+        } catch (Exception e) {
+          AppExceptionHandler.handle(HomeActivity.this,
+                                     e);
+        }
+        return false;
+      }
+
+      @Override
+      public boolean onQueryTextChange(String s) {
+        return false;
+      }
+    });
+     
 
     MenuItem item = menu.findItem(R.id.action_cart);
     AppOnMenuItemClickListener mennuItemListener = new AppOnMenuItemClickListener(this) {
@@ -100,8 +130,8 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
     };
     item.setOnMenuItemClickListener(mennuItemListener);
 
-    item = menu.findItem(R.id.action_checkout);
-    item.setOnMenuItemClickListener(mennuItemListener);
+//    item = menu.findItem(R.id.action_checkout);
+//    item.setOnMenuItemClickListener(mennuItemListener);
 
     return true;//super.onCreateOptionsMenu(menu);
   }

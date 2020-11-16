@@ -96,8 +96,8 @@ public class UIHelper {
   public static void startHomeActivity(AppCompatActivity activity) {
 
     Intent homeIntent = new Intent(activity, HomeActivity.class);
-      homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-      activity.startActivity(homeIntent);
+    homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    activity.startActivity(homeIntent);
 
   }
 
@@ -158,6 +158,16 @@ public class UIHelper {
 
   }
 
+  
+  public static boolean isTopFragment(AppCompatActivity activity,
+                                                    Class<?> fragmentClass,
+                                                    int resourceId) {
+    
+    Fragment currentFragment = activity.getSupportFragmentManager().findFragmentById(resourceId);
+    return currentFragment.getClass().equals(fragmentClass);
+    
+  }
+  
   public static void increaseCount(TextView view) {
 
     String quantity = view.getText().toString();

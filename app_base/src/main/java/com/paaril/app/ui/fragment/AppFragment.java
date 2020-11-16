@@ -53,6 +53,10 @@ public class AppFragment extends Fragment implements Runnable, AppAsyncTaskListe
     return contentView;
   }
 
+  public void replace() {
+    loadAsync();
+  }
+  
   protected void setTitle(String title) {
 
     if (getActivity() != null) {

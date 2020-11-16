@@ -21,6 +21,7 @@ import com.paaril.app.ui.fragment.OrderPaymentFragment;
 import com.paaril.app.ui.fragment.OrdersFragment;
 import com.paaril.app.ui.fragment.ProductDetailFragment;
 import com.paaril.app.ui.fragment.ProductGroupListFragment;
+import com.paaril.app.ui.fragment.ProductSearchFragment;
 import com.paaril.app.ui.fragment.ProfileFragment;
 import com.paaril.app.ui.fragment.SubscriptionDeviationFragment;
 import com.paaril.app.ui.fragment.SubscriptionFragment;
@@ -49,6 +50,28 @@ public class UIFragmentTransaction {
     ProductGroupListFragment productFragment = ProductGroupListFragment.newInstance(category);
     UIHelper.setFragment(activity,
                          productFragment);
+
+  }
+
+  public static void productSearch(AppCompatActivity activity,
+                                   String query) {
+
+    ProductSearchFragment psFragment = null;
+    if (UIHelper.isTopFragment(activity,
+                               ProductSearchFragment.class,
+                               R.id.main_fragment_container)) {
+
+      psFragment = ProductSearchFragment.newInstance(query, false);
+
+    } else {
+      psFragment = ProductSearchFragment.newInstance(query,
+                                                     true);
+    }
+
+    if (psFragment != null) {
+      UIHelper.setFragment(activity,
+                           psFragment);
+    }
 
   }
 
@@ -100,7 +123,7 @@ public class UIFragmentTransaction {
                          orderFragment);
 
   }
-  
+
   public static void orderPayment(AppCompatActivity activity,
                                   DomainEntity salesOrder) {
     OrderPaymentFragment orderFragment = OrderPaymentFragment.newInstance(salesOrder);
@@ -116,7 +139,7 @@ public class UIFragmentTransaction {
                          profileFragment);
 
   }
-  
+
   public static void wallet(AppCompatActivity activity) {
     WalletFragment walletFragment = new WalletFragment();
     UIHelper.setFragment(activity,
